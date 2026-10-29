@@ -14,7 +14,7 @@ Stack (all free tier): Vite + React, Vercel serverless functions (`api/`), Neon 
 ## Quick setup (browser only, ~15 min)
 
 1. Click [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAayush-683%2Ffacial-attendance&env=AUTH_SECRET,ADMIN_PASSWORD,KIOSK_PIN,CRON_SECRET&envDescription=AUTH_SECRET%20and%20CRON_SECRET%3A%20any%20long%20random%20text.%20ADMIN_PASSWORD%3A%20admin%20login.%20KIOSK_PIN%3A%20digits%20for%20the%20tablet.&project-name=attendance), log in with GitHub and fill the 4 values.
-2. Open the project in Vercel, go to **Storage**, create a **Neon** database and a **Blob** store, and connect both to the project.
+2. Open the project in Vercel, go to **Storage**, create a **Neon** database and a **Blob** store with **Public** access (a Private store makes photo uploads fail), and connect both to the project.
 3. Open the Neon DB (**Open in Neon**), go to **SQL Editor**, paste all of [`db/schema.sql`](db/schema.sql) and click **Run**.
 4. In Vercel, go to **Deployments**, open the ⋯ menu on the latest one and pick **Redeploy**.
 5. Open `<your-url>/admin`, then on the tablet open `<your-url>`.
@@ -22,7 +22,7 @@ Stack (all free tier): Vite + React, Vercel serverless functions (`api/`), Neon 
 ## Setup with the CLI (alternative)
 
 1. **Fork** this repo to your own GitHub (button at top right), then in Vercel: **Add New > Project** and import your fork. Free Hobby plan is fine. Vercel needs the repo on your account to auto-deploy.
-2. In Vercel: **Storage** tab, create a **Neon** Postgres DB and a **Blob** store, then connect both to the project. This adds `DATABASE_URL` and `BLOB_READ_WRITE_TOKEN`.
+2. In Vercel: **Storage** tab, create a **Neon** Postgres DB and a **Blob** store with **Public** access, then connect both to the project. This adds `DATABASE_URL` and `BLOB_READ_WRITE_TOKEN`.
 3. In Vercel: **Settings > Environment Variables**, add `AUTH_SECRET`, `ADMIN_PASSWORD`, `KIOSK_PIN` and `CRON_SECRET` (see `.env.example`).
 4. On your PC (needs Node 20+), creating the DB tables:
    ```sh
